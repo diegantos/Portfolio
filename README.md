@@ -2,12 +2,11 @@
 ![Imagen del proyecto](https://user-images.githubusercontent.com/118907489/204322209-21d44fa6-5166-4321-84e3-43b62a3c1cf9.png)
 
 ## Ejemplo en vivo
-- [Enlace directo Afterlife](https://effervescent-platypus-119fbc.netlify.app/)
+- [Enlace a diegantos.com](https://diegantos.com)
 <!-- - [URL-de-la-api](URL-de-la-api) -->
 
 ## Descripción 📑
-
-En este proyecto me he introducido en mi primera prueba realizando una web con React
+Portfolio personal de Diego Santos
 
 ## ¿Qué he aprendido en este proyecto? 🙇🏻 
 
@@ -19,8 +18,6 @@ He aprendido a utilizar componentes en React en la que he podido introducir unas
 [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://es.wikipedia.org/wiki/CSS)
 [![SCSS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://es.wikipedia.org/wiki/SCSS)
 [![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://es.wikipedia.org/wiki/JavaScript)
-[![NODE](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://es.wikipedia.org/wiki/Node)
-[![REACT](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://es.wikipedia.org/wiki/React)
 
 ## Vista previa del proyecto
 Si quieres hechar un vistazo al proyecto, te recomiendo:
