@@ -16,20 +16,23 @@
         
     </div> -->
 
-    <!-- <div class="transit">
-        <div class="transit__one"></div>
-        <div class="transit__two"></div>
-        <div class="transit__three"></div>
-    </div> -->
-
-    <div class="transit one"></div>
-    <div class="transit two"></div>
-    <div class="transit three"></div>
+    <div class="transit-container">
+        <div class="transit one"></div>
+        <div class="transit two"></div>
+        <div class="transit three"></div>
+        <div class="transit four">
+            <div class="transit__content">
+                <a href="index.html" class="transit__text">HOME</a>
+                <a href="works.html" class="transit__text">WORKS</a>
+                <a href="about.html" class="transit__text">ABOUT</a>
+            </div>
+        </div>
+    </div>
 
     <div class="cursor"></div>
 
     <header class="header">
-        <a href="#" class="header__logo">
+        <a href="index.html" class="header__logo">
             <span class="header__letra">D</span>
             <span class="header__letra">I</span>
             <span class="header__letra">E</span>
@@ -50,25 +53,27 @@
         
     </header>
 
-    <div class="intro wrapper">
+    <div class="intro">
+        <div class="wrapper">
 
-        <div class="intro__name">
-            <img class="intro__year" src="img/2023Circle.svg" alt="Imagen 2023" loading="lazy">
-            <h1 class="intro__surname">DIEGO SANTOS</h1>
-        </div>
-        <div class="intro__front">
+            <h1 class="intro__name">DIEGO SANTOS</h1>
+
             <p class="intro__description">Front-end developer</p>
-            <!-- <img class="intro__yearbig" src="img/StartScrolling.svg" alt="Imagen Scrolling" loading="lazy"> -->
+
+            <div class="intro__scroll">
+                <a class="intro__btn btn" href="#featured">
+                  <span class="btn__span">Click to continue</span>
+                </a>
+            </div>
+
+            <!-- <img class="intro__year" src="img/2023Circle.svg" alt="Imagen 2023" loading="lazy"> -->
+
         </div>
-        <div class="intro__scroll">
-            <a class="intro__btn btn" href="#featured">
-              <span class="btn__span">Click to continue</span>
-            </a>
-        </div>
+
     </div>
     
-    <div class="works">
-        <h2 class="works__title" id="featured">Featured works</h2>
+    <div class="works" id="featured">
+        <h2 class="works__title">Featured works</h2>
         <ul class="works__slider">
             <li class="works__li">
                 <a class="works__circle" href="#">
@@ -76,18 +81,21 @@
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle works__ds" href="#">
+                <a class="works__circle" href="#">
                     <p class="works__text">DS CREATIVE</p>
+                    <img class="works__img" src="img/DSportada.jpg" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle works__noko" href="#">
+                <a class="works__circle" href="#">
                     <p class="works__text">NOKO E-BIKES</p>
+                    <img class="works__img" src="img/Noko.jpg" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle works__afterlife" href="#">
+                <a class="works__circle" href="#">
                     <p class="works__text">AFTERLIFE</p>
+                    <img class="works__img" src="img/Afterlife.png" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">

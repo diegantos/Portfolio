@@ -31,14 +31,32 @@ const copyFooter = document.querySelector('.footer__copy')
 const footerLi = document.querySelectorAll('.footer__li')
 const footerSocial = document.querySelector('.footer__social')
 
+const transitOne  = document.querySelector('.one')
+const transitTwo  = document.querySelector('.two')
+const transitThree  = document.querySelector('.three')
+const transitFour  = document.querySelector('.four')
+const transitContent = document.querySelector('.transit__content')
+const menuText = document.querySelectorAll('.transit__text')
+
 let ejeX = 0
 let ejeY = 0
 let escala = 1
 
 let text = ''
 
-let moverCursor = ()=>{
+let moverCursor = () => {
     cursor.style.transform = `translateX( ${ejeX - 12}px) translateY(${ejeY-12}px) scale(${escala})`
+}
+
+//Transicion de boton burger
+
+let showTransit = () => {
+    transitOne.classList.toggle('active')
+    transitTwo.classList.toggle('active')
+    transitThree.classList.toggle('active')
+    transitFour.classList.toggle('active')
+
+    transitContent.classList.toggle('active')
 }
 
 // let showCursorText = ()=>{
@@ -73,11 +91,11 @@ window.addEventListener('scroll', ()=>{
         slider.style.transform = `translateX( ${pixel / 3}px )`
     }
 
-    if( pixel >= 0 && pixel <= 800){
-        titulo1.style.transform = `translateY( ${pixel / 2.5}px)`
-        titulo2.style.transform = `translateY( ${pixel / 6}px)`
-        titulo3.style.transform = ` translateY( ${pixel / 15}px)`
-    }
+    // if( pixel >= 0 && pixel <= 800){
+    //     titulo1.style.transform = `translateY( ${pixel / 2.5}px)`
+    //     titulo2.style.transform = `translateY( ${pixel / 6}px)`
+    //     titulo3.style.transform = ` translateY( ${pixel / 15}px)`
+    // }
 
     pixel >= topSlider - (altoVentana / 1.2) ? slider.classList.add('active') : slider.classList.remove('active')
     
@@ -105,29 +123,13 @@ window.addEventListener('scroll', ()=>{
 
     let topData = contactData.offsetTop
 
-    pixel >= topData - ( altoVentana / 1.5) ? contactData.classList.add('active') : contactData.classList.remove('active')
+    pixel >= topData - ( altoVentana / 1.3) ? contactData.classList.add('active') : contactData.classList.remove('active')
 
     let topSocial = footerSocial.offsetTop
 
-    pixel >= topSocial - ( altoVentana / 1.2) ? footerSocial.classList.add('active') : footerSocial.classList.remove('active')
+    pixel >= topSocial - ( altoVentana / 1.1) ? footerSocial.classList.add('active') : footerSocial.classList.remove('active')
 
 })
-
-
-
-whoLi.forEach(( eachWhoLi , i )=>{
-    window.addEventListener('scroll', ()=>{
-
-        let topWhoLi = whoLi.offsetTop
-
-        pixel >= topWhoLi[i] - ( altoVentana / 1.5 ) ? whoLi[i].classList.add('active') : whoLi[i].classList.remove('active')
-
-        console.log(topWhoLi)
-
-    })
-})
-
-
 
 //Zooms de mouse
 headerLogo.addEventListener('mouseover',()=>{
@@ -201,7 +203,7 @@ footerLi.forEach((eachLi , i)=>{
         copyFooter.classList.remove('active')
     })
 })
-
+        // <!--  ⬇️ HEADER ⬇️  -->
 //click en botón menú
 headerButton.addEventListener('click',()=>{
     headerLines.forEach(( eachLine, i )=>{
@@ -209,6 +211,18 @@ headerButton.addEventListener('click',()=>{
     })
 
     showTransit()
+    
+})
+
+menuText.forEach(( eachText , i )=>{
+    menuText[i].addEventListener('mouseover',()=>{
+        escala = 4
+        moverCursor()
+    })
+    menuText[i].addEventListener('mouseout',()=>{
+        escala = 1
+        moverCursor()
+    })
 })
 
 
@@ -220,22 +234,7 @@ headerButton.addEventListener('click',()=>{
 
 
 
-//Transicion de boton burger
-
-const transitOne  = document.querySelector('.one')
-const transitTwo  = document.querySelector('.two')
-const transitThree  = document.querySelector('.three')
-
-let showTransit = () => {
-    transitOne.classList.toggle('active')
-    transitTwo.classList.toggle('active')
-    transitThree.classList.toggle('active')
-}
-
-
-
-
-// RELOJ
+        // <!--  ⬇️ RELOJ ⬇️  -->
 const deg = 6;
 const sec = document.querySelector('.contact__second');
 const min = document.querySelector('.contact__minute');

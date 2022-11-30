@@ -79,22 +79,99 @@ body{
     top: 0;
     left: 0;
     transform: scaleX(0);
+    // transform: translateX(-100%);
     transform-origin: left;
-    transition: all 0.6s $becier;
+    transition: all 1.2s $becier;
     z-index: 4;
     &.one{
         background-color: $darkgreen;
+        transition-delay: 0.5s;
+        &.active{
+            transition-delay: 0s;
+        }
     }
     &.two {
         background-color: $white;
-        transition-delay: 0.1s;
+        transition-delay: 0.4s;
+        &.active{
+            transition-delay: 0.1s;
+        }
     }
     &.three{
+        background-color: $darkgreen;
+        transition-delay: 0.3s;
+        &.active{
+            transition-delay: 0.2s;
+        }
+    }
+    &.four{
         background-color: $black;
         transition-delay: 0.2s;
+        &.active{
+            transition-delay: 0.3s;
+        }
     }
     &.active{
         transform: scaleX(1);
+        // transform: translateX(100%);
+    }
+    &.active2{
+        transform: scaleX(1);
+        transform: translateX(100%);
+    }
+    &__content{
+        width: 100%;
+        height: 100%;
+        @include flex (column, nowrap, center, center);
+
+        opacity: 0;
+        transform: translateY(5%);
+        transition: all 0.4s ease;
+        &.active{
+            transition-delay: 1.6s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    &__text{
+        font-size: 5em;
+        cursor: none;
+        position: relative;
+        &:not(:last-child){
+            margin-bottom: 1em;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            background-color: $white;
+            transition: all 0.4s $becier;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: right;
+            background-color: $white;
+            transition: all 0.4s $becier;
+        }
+        &:hover{
+            &::before{
+                transform: scaleX(1);
+            }
+            &::after{
+                transform: scaleX(1);
+            }
+        }
     }
 }
 
@@ -216,18 +293,28 @@ body{
 }
 
 .intro{
-    width: 100%;
-    padding-top: 8em;
+    min-height: 80vh;
+    padding: 8em 0;
+    position: relative;
+    @include flex ( row, nowrap, center, center);
     &__name{
-        position: relative;
-        padding: 3em 0;
+        font-size: 11em;
+        font-family: $titles;
+    }
+    &__description{
+        font-family: $body;
+        font-size: 6em;
+    }
+    &__scroll{
+        padding: 4em 0 0;
     }
     &__year{
-        width: 15em;
+        width: 100em;
         position: absolute;
         top: 0;
-        left: -15em;
-        animation: rotacion 20s linear infinite;
+        left: calc( 50% - 50em );
+        // left: 0;
+        // animation: rotacion 20s linear infinite;
         @keyframes rotacion {
             0%{
                 transform: rotate(360deg);
@@ -236,41 +323,6 @@ body{
                 transform: rotate(0deg);
             }
         }
-    }
-    &__front{
-        position: relative;
-        padding: 1em 0;
-    }
-    &__surname{
-        font-size: 11em;
-        font-family: $titles;
-        text-align: right;
-    }
-    &__description{
-        width: 80%;
-        height: 100%;
-        font-family: $body;
-        font-size: 6em;
-    }
-    // &__yearbig{
-    //     width: 30em;
-    //     position: absolute;
-    //     bottom: 0;
-    //     right: 5em;
-    //     z-index: -1;
-    //     animation: rotacionBig 40s linear infinite;
-    //     @keyframes rotacionBig {
-    //         0%{
-    //             transform: rotate(0deg);
-    //         }
-    //         100%{
-    //             transform: rotate(360deg);
-    //         }
-    //     }
-    // }
-    &__scroll{
-        @include flex( row, nowrap, center, center);
-        padding: 2em 0 4em;
     }
     &__btn{
         z-index: 1;
@@ -317,81 +369,41 @@ body{
         cursor: none;
         position: relative;
         overflow: hidden;
-        
+        box-shadow: 0em 1.5em 1.5em #1d1d1d65,
+                    inset 0em 1em 2em #1d1d1d45;
+        position: relative;
+
+        transition: all 0.6s ease;
         @include flex (row, nowrap, center, center);
-        transition: all 2s ease;
+
         &:hover{
-            &::after{
-                filter: blur(0.8em);
-            }
+            box-shadow: 0em 0.5em 2.5em #1d1d1d35,
+                        inset 0em 0.2em 2em #1d1d1d45;
             .works__text{
-                opacity: 1;
+                opacity: 0;
             }
-        }
-        &::before{
-            content: '';
-            position: absolute;
-            top: calc( 50% - 7em );
-            left: calc( 50% - 13em );
-            width: 28em;
-            aspect-ratio: 1;
-            border-radius: 40%;
-            background-color: $black;
-            filter: blur(5px);
-            animation: borderRotate 10s linear infinite;
-        }
-        &::after{
-            content: '';
-            position: absolute;
-            top: calc( 50% - 12em );
-            left: calc( 50% - 12em );
-            width: 24em;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background-color: $white;
-            transition: all 0.6s ease;
-        }
-        @keyframes borderRotate {
-            0%{
-                transform: rotate(0deg) translateY(-20%);
-            }
-            50%{
-                transform: rotate(180deg) translateY(-40%);
-            }
-            100%{
-                transform: rotate(360deg) translateY(-20%);
+            .works__img{
+                transition: all 0.6s ease;
+                opacity: 0.4;
             }
         }
     }
-    &__ds{
-        &::after{
-            background-image: url(../img/DSportada.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    }
-    &__noko{
-        &::after{
-            background-image: url(../img/Noko.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    }
-    &__afterlife{
-        &::after{
-            background-image: url(../img/Afterlife.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    &__img{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+        opacity: 0;
+        transition: all 0.6s ease;
+        border-radius: 50%;
     }
     &__text{
+        position: absolute;
         color: $black;
         font-size: 2em;
         font-family: $body;
-        opacity: 0;
+        opacity: 1;
         z-index: 4;
         transition: all 0.6s ease;
     }
@@ -443,7 +455,8 @@ body{
         @include flex (row, nowrap, center, center);
 
         position: relative;
-
+        z-index: 2;
+        
         &:nth-child(2){
             flex-direction: row-reverse;
         }
@@ -461,13 +474,13 @@ body{
             z-index: 2;
             box-sizing: border-box;
         }
-        opacity: 0;
-        transform: translateY(20%);
-        transition: all 0.4s ease;
-        &.active{
-            opacity: 1;
-            transform: translateY(0);
-        }
+        // opacity: 0;
+        // transform: translateY(20%);
+        // transition: all 0.4s ease;
+        // &.active{
+        //     opacity: 1;
+        //     transform: translateY(0);
+        // }
     }
     &__img{
         flex: 1;
@@ -479,6 +492,8 @@ body{
         border-radius: 50%;
         margin: auto;
         padding: 1em;
+        // box-shadow: 0em 1.5em 1.5em rgba(0, 0, 0, 0.4),
+        //             inset 0em 1em 2em rgba(0, 0, 0, 0.6);
     }
     &__photo1{
         position: absolute;
@@ -669,6 +684,7 @@ body{
     // &__youtube{}
     &__img{
         width: 60%;
+        transition: all 0.3s ease;
     }
     &__copy{
         position: absolute;
@@ -698,53 +714,56 @@ body{
 
 // -----------------------------------------------------------
 
-@media screen and (max-width:1690px) {
-    .intro{
-        &__surname{
-            font-size: 9em;
+@media screen and (min-width: 2100px) {
+    .header{
+        &__logo{
+            font-size: 6em;
         }
-        &__description{
-            font-size: 5em;
-        }
-        // &__yearbig{
-        //     width: 20em;
-        //     position: absolute;
-        //     bottom: 20%;
-        // }
-    }
-}
-@media screen and (max-width:1390px) {
-    .intro{
-        &__surname{
-            font-size: 7em;
-        }
-        &__description{
-            font-size: 4em;
-        }
-        &__yearbig{
-            width: 20em;
-            position: absolute;
-            bottom: 20%;
+        &__letra{
+            &:last-child{
+                transform: translateX(-435px);
+            }
+        }&__button{
+            width: 6em;
+            height: 6em;
         }
     }
-}
-@media screen and (max-width:1085px) {
-    .intro{
-        &__surname{
-            font-size: 5em;
+    .works{
+        min-height: 75vh;
+        &__slider{
+            gap: 5em;
         }
-        &__description{
-            width: 100%;
-            font-size: 3.5em;
+        &__circle{
+            width: 30em;
         }
-        &__yearbig{
-            width: 15em;
-            position: absolute;
-            bottom: 25%;
+    }
+    .who{
+        &__text{
+            padding: 2em;
+        }
+    }
+    .contact{
+        &__clock{
+            width: 30em;
+            height: 30em;
+        }
+        &__hour{
+            height: 7em;
+        }
+        &__minute{
+            height: 9em;
+        }
+        &__second{
+            height: 11em;
         }
     }
 }
 @media screen and (max-width:1024px) {
+    .intro{
+        &__name{
+            font-size: 9em;
+        }
+    }
     .works{
         min-height: 80vh;
         &__title{
@@ -752,14 +771,6 @@ body{
         }
         &__circle{
             width: 22em;
-            &::before{
-                top: calc( 50% - 8em);
-            }
-            &::after{
-                width: 21em;
-                top: calc( 50% - 10.5em);
-                left: calc( 50% - 10.5em);
-            }
         }
     }
     .who{
@@ -792,19 +803,18 @@ body{
 }
 @media screen and (max-width:780px) {
     .intro{
-        &__surname{
+        &__name{
             font-size: 4.5em;
+            text-align: center;
         }
         &__description{
             font-size: 4em;
             text-align: center;
             line-height: 1em;
         }
-        &__yearbig{
-            width: 10em;
-            position: absolute;
-            bottom: 25%;
-            left: 55%;
+        &__scroll{
+            text-align: center;
+            padding: 2em 0;
         }
     }
     .works{
@@ -814,16 +824,9 @@ body{
         }
         &__circle{
             width: 15em;
-            &::before{
-                width: 16em;
-                top: calc( 50% - 6em);
-                left: calc( 50% - 6em);
-            }
-            &::after{
-                width: 14em;
-                top: calc( 50% - 7em);
-                left: calc( 50% - 7em);
-            }
+        }
+        &__text{
+            font-size: 1.5em;
         }
     }
     .who{
@@ -879,15 +882,6 @@ body{
         }
         &__circle{
             width: 13em;
-            &::before{
-                top: calc( 50% - 4.5em);
-                left: calc( 50% - 6em);
-            }
-            &::after{
-                width: 12em;
-                top: calc( 50% - 6em);
-                left: calc( 50% - 6em);
-            }
         }
     }
     .who{
@@ -921,7 +915,7 @@ body{
         padding: 2em 1.5em;
     }
     .intro{
-        &__surname{
+        &__name{
             font-size: 4em;
             text-align: center;
         }
