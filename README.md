@@ -22,7 +22,7 @@ He aprendido a utilizar componentes en React en la que he podido introducir unas
 ## Vista previa del proyecto
 Si quieres hechar un vistazo al proyecto, te recomiendo:
 
-![Captura del proyecto](https://user-images.githubusercontent.com/118907489/204732911-9a3a57cd-7ea5-41f8-85d1-9538bbb7e691.png)
+![Captura del proyecto](https://user-images.githubusercontent.com/118907489/204733792-df69c360-bb07-4f75-ac7e-306eb0def1f7.png)
 
 ## Autor ✒️
 **DIEGO SANTOS**
