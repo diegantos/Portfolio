@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Santos</title>
+
+    <title>Diego Santos | Front-end Developer</title>
+    <meta name="title" content="Diego Santos | Front-end Developer">
+    <meta name="description" content="Welcome to my portfolio as a Front-end developer.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diegantos.com/">
+    <meta property="og:title" content="Diego Santos | Front-end Developer">
+    <meta property="og:description" content="Welcome to my portfolio as a Front-end developer.">
+    <meta property="og:image" content="https://diegantos.com/img/DS.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://diegantos.com/">
+    <meta property="twitter:title" content="Diego Santos | Front-end Developer">
+    <meta property="twitter:description" content="Welcome to my portfolio as a Front-end developer.">
+    <meta property="twitter:image" content="https://diegantos.com/img/DS.png">
+
     <link rel="shortcut icon" href="img/FaviconDS.png" type="image/x-icon">
     <link href="https://api.fontshare.com/v2/css?f[]=archivo@400&f[]=clash-display@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -12,19 +28,15 @@
 </head>
 <body>
 
-    <!-- <div class="preload">
-        
-    </div> -->
-
     <div class="transit-container">
         <div class="transit one"></div>
         <div class="transit two"></div>
         <div class="transit three"></div>
         <div class="transit four">
             <div class="transit__content">
-                <a href="index.html" class="transit__text">HOME</a>
-                <a href="works.html" class="transit__text">WORKS</a>
-                <a href="about.html" class="transit__text">ABOUT</a>
+                <a href="index.html" class="transit__text link">HOME</a>
+                <a href="works.html" class="transit__text link">WORKS</a>
+                <a href="about.html" class="transit__text link">ABOUT</a>
             </div>
         </div>
     </div>
@@ -32,7 +44,7 @@
     <div class="cursor"></div>
 
     <header class="header">
-        <a href="index.html" class="header__logo">
+        <a href="index.html" class="header__logo link">
             <span class="header__letra">D</span>
             <span class="header__letra">I</span>
             <span class="header__letra">E</span>
@@ -44,12 +56,10 @@
             <span class="header__letra">S</span>
         </a>
 
-        <a href="#">
-            <button class="header__button">
-                <div class="header__line line1"></div>
-                <div class="header__line line2"></div>
-            </button>
-        </a>
+        <button class="header__button">
+            <div class="header__line line1"></div>
+            <div class="header__line line2"></div>
+        </button>
         
     </header>
 
@@ -73,29 +83,29 @@
     </div>
     
     <div class="works" id="featured">
-        <h2 class="works__title">Featured works</h2>
+        <h2 class="works__title scroll-appear" data-velocidad="1.5">Featured works</h2>
         <ul class="works__slider">
             <li class="works__li">
                 <a class="works__circle" href="#">
-                    <p class="works__text">JUNIOR</p>
+                    <p class="works__text">WORKS</p>
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle" href="#">
+                <a class="works__circle" href="#" target="_blank">
                     <p class="works__text">DS CREATIVE</p>
                     <img class="works__img" src="img/DSportada.jpg" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle" href="#">
+                <a class="works__circle" href="https://github.com/diegantos/Nokobike" target="_blank">
                     <p class="works__text">NOKO E-BIKES</p>
                     <img class="works__img" src="img/Noko.jpg" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">
-                <a class="works__circle" href="#">
+                <a class="works__circle" href="https://github.com/diegantos/Afterlife" target="_blank">
                     <p class="works__text">AFTERLIFE</p>
-                    <img class="works__img" src="img/Afterlife.png" alt="" loading="lazy">
+                    <img class="works__img" src="img/Afterlife.jpg" alt="" loading="lazy">
                 </a>
             </li>
             <li class="works__li">
@@ -121,8 +131,16 @@
         <ul class="who__ul">
             <li class="who__li">
                 <div class="who__img">
-                    <img class="who__photo" src="img/P1003035.jpg" alt="img1" loading="lazy">
-                    <img class="who__photo who__photo1" src="img/P1003041.jpg" alt="img1" loading="lazy">
+                    <picture>
+                        <source srcset="img/P1003035.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1003035.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo" src="img/P1003035.jpg" alt="img1" loading="lazy">
+                    </picture>
+                    <picture>
+                        <source srcset="img/P1003041.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1003041.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo who__photo1" src="img/P1003041.jpg" alt="img1" loading="lazy">
+                    </picture>
                 </div>
                 <div class="who__text">
                     <p>Born and raised in Asturias, north Spain, Diego Santos is a creative enthusiast</p>
@@ -130,8 +148,16 @@
             </li>
             <li class="who__li">
                 <div class="who__img">
-                    <img class="who__photo" src="img/P1003052.jpg" alt="img2" loading="lazy">
-                    <img class="who__photo who__photo1" src="img/P1003058.jpg" alt="img2" loading="lazy">
+                    <picture>
+                        <source srcset="img/P1003052.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1003052.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo" src="img/P1003052.jpg" alt="img2" loading="lazy">
+                    </picture>
+                    <picture>
+                        <source srcset="img/P1003058.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1003058.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo who__photo1" src="img/P1003058.jpg" alt="img2" loading="lazy">
+                    </picture>
                 </div>
                 <div class="who__text">
                     <p>I believe every project is an opportunity to deliver a unique and memorable digital experience</p>
@@ -139,8 +165,16 @@
             </li>
             <li class="who__li">
                 <div class="who__img">
-                    <img class="who__photo" src="img/P1021731.jpg" alt="img3" loading="lazy">
-                    <img class="who__photo who__photo1" src="img/P1021714.jpg" alt="img3" loading="lazy">
+                    <picture>
+                        <source srcset="img/P1021731.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1021731.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo" src="img/P1021731.jpg" alt="img3" loading="lazy">
+                    </picture>
+                    <picture>
+                        <source srcset="img/P1021714.webp" media="(max-width: 1024px)" type="image/webp">
+                        <source srcset="img/P1021714.jpg" media="(max-width: 1024px)" type="image/jpg">
+                        <img class="who__photo who__photo1" src="img/P1021714.jpg" alt="img3" loading="lazy">
+                    </picture>
                 </div>
                 <div class="who__text">
                     <p>Pasionate about creating stories and always looking for some crazy stuff</p>

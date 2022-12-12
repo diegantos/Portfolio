@@ -2,6 +2,7 @@
 
 const btn    = document.querySelector('.btn')
 const cursor = document.querySelector('.cursor')
+const link = document.querySelectorAll('.link')
 
 const header = document.querySelector('.header')
 const headerLogo   = document.querySelector('.header__logo')
@@ -38,6 +39,8 @@ const transitFour  = document.querySelector('.four')
 const transitContent = document.querySelector('.transit__content')
 const menuText = document.querySelectorAll('.transit__text')
 
+const aboutContainer = document.querySelector('.about__vid')
+
 let ejeX = 0
 let ejeY = 0
 let escala = 1
@@ -48,8 +51,6 @@ let moverCursor = () => {
     cursor.style.transform = `translateX( ${ejeX - 12}px) translateY(${ejeY-12}px) scale(${escala})`
 }
 
-//Transicion de boton burger
-
 let showTransit = () => {
     transitOne.classList.toggle('active')
     transitTwo.classList.toggle('active')
@@ -59,17 +60,24 @@ let showTransit = () => {
     transitContent.classList.toggle('active')
 }
 
-// let showCursorText = ()=>{
-//     const fragmento = document.createDocumentFragment()
-//     const span = document.createElement('span')
-//         span.classList.add('add__copy')
-//         span.innerHTML = `${text}`
-//     fragmento.appendChild(span)
+        // <!--  ⬇️ ELIMINAR EVENTOS A Y AÑADIR PROPIA TRANSICIÓN ⬇️  -->
 
-//     cursor.appendChild(fragmento)
-// }
+link.forEach(( eachLink , i )=>{
+    link[i].addEventListener('click',( e )=>{
+        e.preventDefault()
 
-//Circulo ratón
+        let path = link[i].href
+
+        showTransit()
+
+        setTimeout(()=>{
+            window.location.href = path
+        }, 1400)
+    })
+})
+
+        // <!--  ⬇️ MOVIMIENTO RATÓN CON BOLA ⬇️  -->
+
 window.addEventListener('mousemove',( {clientX , clientY} )=>{
     // console.clear()
     // console.log( {clientX , clientY} )
@@ -78,60 +86,69 @@ window.addEventListener('mousemove',( {clientX , clientY} )=>{
     ejeY = clientY
     moverCursor()
 })
-//Scroll en ruedas
-window.addEventListener('scroll', ()=>{
-    //console.clear()
 
-    let pixel       = window.scrollY                //Cuanto Scroll
-    let altoVentana = window.innerHeight            //Alto de la Ventana
-    let topSlider   = slider.offsetTop              //Distancia arriba del elemento a la página
-    //console.log({ pixel, altoVentana , topSlider})
+        // <!--  ⬇️ HEADER ⬇️  -->
 
-    if( pixel >= topSlider - altoVentana && pixel <= topSlider + altoVentana){
-        slider.style.transform = `translateX( ${pixel / 3}px )`
-    }
+headerButton.addEventListener('click',()=>{
+    headerLines.forEach(( eachLine, i )=>{
+        headerLines[i].classList.toggle('active')
+    })
 
-    // if( pixel >= 0 && pixel <= 800){
-    //     titulo1.style.transform = `translateY( ${pixel / 2.5}px)`
-    //     titulo2.style.transform = `translateY( ${pixel / 6}px)`
-    //     titulo3.style.transform = ` translateY( ${pixel / 15}px)`
-    // }
-
-    pixel >= topSlider - (altoVentana / 1.2) ? slider.classList.add('active') : slider.classList.remove('active')
+    showTransit()
     
-    // ( pixel > 700 ) ? header.classList.add('active') : header.classList.remove('active')
-
-    let topTitleWho = whoTitle.offsetTop
-
-    pixel >= topTitleWho - (altoVentana / 1.5) ? whoTitle.classList.add('active') : whoTitle.classList.remove('active')
-
-    let topTitleWorks = worksTitle.offsetTop
-
-    pixel >= topTitleWorks - (altoVentana / 1.5) ? worksTitle.classList.add('active') : worksTitle.classList.remove('active')
-
-    let topTitleContact = contactTitle.offsetTop
-
-    pixel >= topTitleContact - (altoVentana / 1.5) ? contactTitle.classList.add('active') : contactTitle.classList.remove('active')
-
-    let topClock = clock.offsetTop
-
-    pixel >= topClock - ( altoVentana / 1.5) ? clock.classList.add('active') : clock.classList.remove('active')
-    
-    let topSubtitle = contactSubtitle.offsetTop
-
-    pixel >= topSubtitle - ( altoVentana / 1.5) ? contactSubtitle.classList.add('active') : contactSubtitle.classList.remove('active')
-
-    let topData = contactData.offsetTop
-
-    pixel >= topData - ( altoVentana / 1.3) ? contactData.classList.add('active') : contactData.classList.remove('active')
-
-    let topSocial = footerSocial.offsetTop
-
-    pixel >= topSocial - ( altoVentana / 1.1) ? footerSocial.classList.add('active') : footerSocial.classList.remove('active')
-
 })
 
-//Zooms de mouse
+menuText.forEach(( eachText , i )=>{
+    menuText[i].addEventListener('mouseover',()=>{
+        escala = 4
+        moverCursor()
+    })
+    menuText[i].addEventListener('mouseout',()=>{
+        escala = 1
+        moverCursor()
+    })
+})
+
+//         // <!--  ⬇️ SCROLL ⬇️  -->
+        
+// const elementosAppear = document.querySelectorAll('.scroll-appear')
+const elementosAppear = [
+    {elemento: slider , velocidad : 1.2},
+    {elemento: whoTitle , velocidad : 1.5},
+    {elemento: worksTitle , velocidad : 1.5},
+    {elemento: contactTitle , velocidad : 1.5},
+    {elemento: clock , velocidad : 1.5},
+    {elemento: contactSubtitle , velocidad : 1.5},
+    {elemento: contactData , velocidad : 1.3},
+    {elemento: footerSocial , velocidad : 1.1},
+]
+let appear = (  element , valor ) => {
+        
+    window.addEventListener('scroll', ()=>{
+        console.clear()
+        let pixel       = window.scrollY                //Cuanto Scroll
+        let altoVentana = window.innerHeight            //Alto de la Ventana
+        let top = element.offsetTop
+   
+        pixel >= top - (altoVentana / valor) ? element.classList.add('active') : element.classList.remove('active')
+
+
+        if( pixel >= top - altoVentana && pixel <= top + altoVentana){
+            slider.style.transform = `translateX( ${pixel / 3}px )`
+        }
+
+        if( pixel >= 100){
+            aboutContainer.style.transform = `translateY(${pixel / 6}px)`
+        }
+    })
+}
+
+elementosAppear.forEach( ({ elemento , velocidad }) => {
+    appear( elemento , velocidad )
+})
+
+        // <!--  ⬇️ ZOOMS DE MOUSE ⬇️  -->
+
 headerLogo.addEventListener('mouseover',()=>{
     escala = 3
     moverCursor()
@@ -160,8 +177,6 @@ email.addEventListener('mouseover',()=>{
     escala = 3
     moverCursor()
     copyEmail.classList.add('active')
-    // text = 'COPY'
-    // showCursorText()
 })
 email.addEventListener('mouseout',()=>{
     escala = 1
@@ -178,6 +193,8 @@ photo.forEach(( eachPhoto, i )=>{
         moverCursor()
     })
 })
+        // <!--  ⬇️ FOOTER ⬇️  -->
+
 sliderEnlaces.forEach(( eachEnlace , i )=>{
     sliderEnlaces[i].addEventListener('mouseover',()=>{
         escala = 3.5
@@ -203,38 +220,9 @@ footerLi.forEach((eachLi , i)=>{
         copyFooter.classList.remove('active')
     })
 })
-        // <!--  ⬇️ HEADER ⬇️  -->
-//click en botón menú
-headerButton.addEventListener('click',()=>{
-    headerLines.forEach(( eachLine, i )=>{
-        headerLines[i].classList.toggle('active')
-    })
-
-    showTransit()
-    
-})
-
-menuText.forEach(( eachText , i )=>{
-    menuText[i].addEventListener('mouseover',()=>{
-        escala = 4
-        moverCursor()
-    })
-    menuText[i].addEventListener('mouseout',()=>{
-        escala = 1
-        moverCursor()
-    })
-})
-
-
-
-
-
-
-
-
-
 
         // <!--  ⬇️ RELOJ ⬇️  -->
+
 const deg = 6;
 const sec = document.querySelector('.contact__second');
 const min = document.querySelector('.contact__minute');
@@ -249,3 +237,45 @@ setInterval(() => {
     min.style.transform = `rotateZ(${m}deg)`;
     hr.style.transform = `rotateZ(${(h) + (m / 12)}deg)`;
 })
+
+
+        // <!--  ⬇️ SCROLL ⬇️  -->
+
+
+
+// window.addEventListener('scroll', ()=>{
+//     //console.clear()
+//     let pixel       = window.scrollY                //Cuanto Scroll
+//     let altoVentana = window.innerHeight            //Alto de la Ventana
+
+//     let appear = (  element , valor) => {
+        
+//         let top = element.offsetTop
+       
+//         pixel >= top - (altoVentana / valor) ? element.classList.add('active') : element.classList.remove('active')
+//     }
+
+
+   
+
+//     appear( slider , 1.2)
+//     appear( whoTitle , 1.5)
+//     appear( worksTitle , 1.5)
+//     appear( contactTitle , 1.5)
+//     appear( clock , 1.5)
+//     appear( contactSubtitle , 1.5)
+//     appear( contactData , 1.3)
+//     appear( footerSocial , 1.1)
+
+//     if( pixel >= topSlider - altoVentana && pixel <= topSlider + altoVentana){
+//         slider.style.transform = `translateX( ${pixel / 3}px )`
+//     }
+    
+//     // ( pixel > 700 ) ? header.classList.add('active') : header.classList.remove('active')
+
+//     // if( pixel >= 0 && pixel <= 800){
+//     //     titulo1.style.transform = `translateY( ${pixel / 2.5}px)`
+//     //     titulo2.style.transform = `translateY( ${pixel / 6}px)`
+//     //     titulo3.style.transform = ` translateY( ${pixel / 15}px)`
+//     // }
+// })
