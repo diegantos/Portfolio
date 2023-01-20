@@ -299,6 +299,22 @@ body{
     &__name{
         font-size: 11em;
         font-family: $titles;
+        position: relative;
+        &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            left: 100%;
+            background: linear-gradient(90deg, rgba(21, 19, 20, 0) 0%, rgb(21, 19, 20) 11%);
+        }
+        opacity: 0;
+        transform: translateY(5%);
+        transition: all 0.4s ease;
+        &.active{
+            transition-delay: 1.6s;
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
     &__description{
         font-family: $body;
@@ -425,7 +441,6 @@ body{
     }
     &__ul{
         position: relative;
-
         &::after{
             content: '';
             display: block;

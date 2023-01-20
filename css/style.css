@@ -552,6 +552,27 @@ body::-webkit-scrollbar-thumb {
 .intro__name {
   font-size: 11em;
   font-family: "Clash Display", sans-serif;
+  position: relative;
+  opacity: 0;
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.intro__name::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(21, 19, 20, 0)), color-stop(11%, rgb(21, 19, 20)));
+  background: linear-gradient(90deg, rgba(21, 19, 20, 0) 0%, rgb(21, 19, 20) 11%);
+}
+.intro__name.active {
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 .intro__description {
   font-family: "Archivo", sans-serif;
