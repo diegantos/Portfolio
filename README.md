@@ -8,10 +8,6 @@
 ## Descripción 📑
 Portfolio personal de Diego Santos
 
-## ¿Qué he aprendido en este proyecto? 🙇🏻 
-
-He aprendido a utilizar componentes en React en la que he podido introducir unas tabs para la práctica de clicks
-
 ## Tecnologías 🛠
 <!-- Iconos sacados de: https://github.com/hendrasob/badges/blob/master/README.md y https://github.com/alexandresanlim/Badges4-README.md-Profile -->
 [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://es.wikipedia.org/wiki/HTML5)
